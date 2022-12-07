@@ -1,25 +1,12 @@
-import { useMenu } from '@/hooks'
-import { useEffect } from 'react'
-import { MenuItem } from '../MenuItem/MenuItem'
-import { MenuItemsWrapper, MenuItemWrapper } from './menuItems.styled'
+import { useMenuItems } from '@/hooks';
 import { PlatoType } from '@/models/Plato';
 import { AlergenItems } from '../AlergensItems/AlergenItems';
-import { useAlergens } from '@/hooks/useAlergens';
-import { getEnterpriseId } from '@/utility';
+import { MenuItem } from '../MenuItem/MenuItem';
+import { MenuItemsWrapper, MenuItemWrapper } from './menuItems.styled';
 
 export const MenuItems = () => {
-    const { startingGetAllMenu, menu } = useMenu(getEnterpriseId(), "esp")
-    const { alergens, isOpen, startingLoadingAllAlergens } = useAlergens(getEnterpriseId())
 
-    useEffect(() => {
-        startingGetAllMenu()
-    }, [])
-
-    useEffect(() => {
-        if (menu.length <= 0) return
-        startingLoadingAllAlergens()
-    }, [menu])
-
+    const { alergens, menu, isOpen } = useMenuItems()
 
     return (
         <MenuItemsWrapper>
