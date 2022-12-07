@@ -21,7 +21,7 @@ export const MenuItems = () => {
                                     (
                                         alergens
                                             // Le paso el id del producto y el alergen
-                                            ? <AlergenItems alergen={alergens[i]} id={`${item.idProduct} alergens`} />
+                                            ? <AlergenItems alergen={alergens[i][`${item.idProduct} alergens`]} />
                                             : <p>Loading...</p>
                                     )
 

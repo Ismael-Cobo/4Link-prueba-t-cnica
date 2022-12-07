@@ -1,5 +1,5 @@
 import { Alergen } from './Alergen'
 
 export interface Alergens {
-  [key: number]: { [key: string]: Alergen[] }
+  [key: number]: { ['`${string} alergens`']: Alergen[] }
 }
